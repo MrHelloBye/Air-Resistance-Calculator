@@ -46,10 +46,10 @@ int main() {
         
         for (int repeatCounter = 0; (repeatCounter <= 20) || (delt <= tolerance); repeatCounter++) {
             // Perform Newton's Method.
-            y; // Set to 0 of vy
+            y = Calcy(tguess, gamma, v0y);
             vy = Calcvy(tguess, gamma, v0y);
-            cout << vy;
-            break;
+            tguess = -y/vy;
+            cout << tguess;
         }
         
     } while (repeatCheck == true);
