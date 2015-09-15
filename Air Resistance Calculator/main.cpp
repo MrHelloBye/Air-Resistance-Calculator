@@ -48,7 +48,7 @@ int main() {
             // Perform Newton's Method.
             y = Calcy(tguess, gamma, v0y);
             if (y) {
-                
+                //Add Stuff here.
             }
         }
         
