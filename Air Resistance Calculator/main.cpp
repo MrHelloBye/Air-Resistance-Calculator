@@ -52,7 +52,7 @@ int main() {
             vy = Calcvy(tguess, gamma, v0y);
             delt = -y/vy;
             tguess = tguess + delt;
-            cout << delt << '\t' << tguess << endl;
+            cout << tguess << endl;
         }
         x = Calcx(tguess, gamma, v0x);
         cout << "The time taken for the projectile to hit the ground is: "<< tguess << endl;
