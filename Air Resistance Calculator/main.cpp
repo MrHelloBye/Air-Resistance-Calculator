@@ -28,7 +28,7 @@ double Calcvx(double t, double gamma, double v0x) {
 }
 
 int main() {
-    double delt, tguess = 5, tolerance = 1.0E-8;
+    double delt = 0, tguess = 100000, tolerance = 1.0E-8;
     double v0, theta, thetaInRads, gamma, height;
     bool repeatCheck;
     double x, y, v0x, v0y, vx, vy;
@@ -44,12 +44,12 @@ int main() {
         cout << "Enter height in meters:\n";
         scanf("%lf", & height);
         
-        for (int repeatCounter = 0; (repeatCounter <= 20) || (delt <= tolerance); repeatCounter++) {
+        for (int repeatCounter = 0; (repeatCounter <= 20); repeatCounter++) {
             // Perform Newton's Method.
             y = Calcy(tguess, gamma, v0y);
             vy = Calcvy(tguess, gamma, v0y);
             tguess = -y/vy;
-            cout << tguess;
+            cout << tguess << endl;
         }
         
     } while (repeatCheck == true);
