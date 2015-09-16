@@ -38,6 +38,9 @@ int main() {
         scanf("%lf", & v0);
         cout << "Enter theta in degrees:\n";
         scanf("%lf", & theta);
+        // IMPORTANT! I troubleshot the program some, and it doesn't like when
+        //theta is close to zero or negative for some reason. It is otherwise generally ok.
+        //Not sure how to fix yet, maybe Pratt can help.
         thetaInRads = theta/180*pi;
         cout << "Enter gamma in s^-1:\n";
         scanf("%lf", & gamma);
