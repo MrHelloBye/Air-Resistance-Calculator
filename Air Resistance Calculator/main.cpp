@@ -13,8 +13,8 @@ double Calcv0x(double v0, double theta) {
     return v0*cos(theta);
 }
 
-double Calcy(double t, double gamma, double v0y) {
-    return -9.81*t/gamma+(v0y+9.81/gamma)/gamma*(1-exp(-gamma*t)); // Defines vertical position
+double Calcy(double t, double gamma, double v0y, double height) {
+    return height-9.81*t/gamma+(v0y+9.81/gamma)/gamma*(1-exp(-gamma*t)); // Defines vertical position
 }
 double Calcvy(double t, double gamma, double v0y) {
     return (v0y+9.81/gamma)*exp(-gamma*t)-9.81/gamma; // Defines Vertical velocity
@@ -48,10 +48,12 @@ int main() {
         scanf("%lf", & height);
         v0x = Calcv0x(v0, thetaInRads);
         v0y = Calcv0y(v0, thetaInRads);
+        //tguess = 2*v0y/9.81; //This was suggested in the notes. We should figure out why it works,
+        // and why it doesn't when v0 = 0
         
         for (int repeatCounter = 0; repeatCounter <= 20; repeatCounter++) {
             // Perform Newton's Method.
-            y = Calcy(tguess, gamma, v0y);
+            y = Calcy(tguess, gamma, v0y, height);
             vy = Calcvy(tguess, gamma, v0y);
             delt = -y/vy;
             tguess = tguess + delt;
